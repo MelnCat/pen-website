@@ -1,0 +1,288 @@
+---
+import Word from "../components/Word.astro";
+import Layout from "../layouts/Layout.astro";
+import Launch from "../assets/icons/launch.svg";
+
+const boardTop = [
+	{
+		name: "Yicheng Yang",
+		title: "Founder & President",
+		image: "TODO",
+	},
+	{
+		name: "Yiyi Yang",
+		title: "Vice-President",
+		image: "TODO",
+	},
+];
+const board = [
+	{
+		name: "Ayden Leung",
+		title: "Design Manager",
+		image: "TODO",
+	},
+	{
+		name: "Alisa Du",
+		title: "Social Media Manager",
+		image: "TODO",
+	},
+	{
+		name: "Ben Fung",
+		title: "Head Tutor",
+		image: "TODO",
+	},
+	{
+		name: "Jane Wang",
+		title: "Operations Manager",
+		image: "TODO",
+	},
+];
+
+const tutors = [
+	{
+		name: "Emad Badei",
+		title: "Biology Tutor",
+		image: "TODO",
+	},
+	{
+		name: "James Lin",
+		title: "English Tutor",
+		image: "TODO",
+	},
+	{
+		name: "Hyobeen Ahn",
+		title: "Math Tutor",
+		image: "TODO",
+	},
+	{
+		name: "Matt Chong",
+		title: "Physics Tutor",
+		image: "TODO",
+	},
+	{
+		name: "Gillian Xie",
+		title: "English Tutor",
+		image: "TODO",
+	},
+	{
+		name: "Emma Jia",
+		title: "English Tutor",
+		image: "TODO",
+	},
+	{
+		name: "Ayesha Klair",
+		title: "Biology Tutor",
+		image: "TODO",
+	},
+	{
+		name: "Darius Gao",
+		title: "English Tutor",
+		image: "TODO",
+	},
+	{
+		name: "Anushka Mukherjee",
+		title: "Math/ English Tutor",
+		image: "TODO",
+	},
+	{
+		name: "Amir Shekari",
+		title: "Math Tutor",
+		image: "TODO",
+	},
+	{
+		name: "Mike Zhang",
+		title: "English Tutor",
+		image: "TODO",
+	},
+	{
+		name: "Lucy Dong",
+		title: "Math Tutor",
+		image: "TODO",
+	},
+	{
+		name: "Anna Yang",
+		title: "English Tutor",
+		image: "TODO",
+	},
+	{
+		name: "Amber Zhang",
+		title: "Math Tutor",
+		image: "TODO",
+	},
+	{
+		name: "Iny Yu",
+		title: "English Tutor",
+		image: "TODO",
+	},
+	{
+		name: "Amy Lu",
+		title: "English Tutor",
+		image: "TODO",
+	},
+	{
+		name: "Chloe Fu",
+		title: "English Tutor",
+		image: "TODO",
+	},
+];
+---
+
+<Layout>
+	<div class="title">
+		<Word><h1>Meet Our <em>Dedicated</em> Team</h1></Word>
+		<Word delay={1}
+			><p class="subtitle">
+				The Pacific Education Network’s team are core contributors to the cause of free, accessible, and personalized
+				tutoring. Without the hard work and dedication from them, our society would not be the same as it is today.
+			</p></Word
+		>
+	</div>
+	<div class="spacer" />
+	<section class="name-section">
+		<h2>Executive Board</h2>
+		<p>
+			Meet the executives who keep our society thriving! From providing administrative services, scheduling courses,
+			marketing, and ensuring student satisfaction, these individuals are the people who have shaped the Pacific Education
+			Network’s success.
+		</p>
+		<div class="board-grid-top">
+			{
+				boardTop.map(x => (
+					<div class="grid-item board-top-item">
+						<div class="portrait-image">
+							<img src={x.image} />
+						</div>
+						<h3 class="name">{x.name}</h3>
+						<p class="title">{x.title}</p>
+					</div>
+				))
+			}
+		</div>
+		<div class="board-grid">
+			{
+				board.map(x => (
+					<div class="grid-item board-item">
+						<div class="portrait-image">
+							<img src={x.image} />
+						</div>
+						<h3 class="name">{x.name}</h3>
+						<p class="title">{x.title}</p>
+					</div>
+				))
+			}
+		</div>
+	</section>
+	<div class="spacer" />
+	<section class="name-section">
+		<h2>Tutors</h2>
+		<p>
+			Meet our hardworking tutors who bring Pacific Education Network’s free teaching to life! From publishing resources,
+			ensuring consistency, creating opportunities for growth, and fostering genuine connection, these hardworking
+			individuals are the reason why the Pacific Education Network is able to empower individuals students in their
+			pursuit of knowledge.
+		</p>
+		<div class="tutor-grid">
+			{
+				tutors.map(x => (
+					<div class="grid-item tutor-item">
+						<div class="portrait-image">
+							<img src={x.image} />
+						</div>
+						<h3 class="name">{x.name}</h3>
+						<p class="title">{x.title}</p>
+					</div>
+				))
+			}
+		</div>
+	</section>
+
+	<style>
+		.spacer {
+			height: 6em;
+		}
+		.title {
+			margin-top: 0.5em;
+			font-family: var(--font-montserrat);
+			text-align: center;
+			display: flex;
+			flex-direction: column;
+			h1 {
+				font-size: 2rem;
+			}
+			.subtitle {
+				font-family: var(--font-glacial);
+				max-width: 60em;
+			}
+		}
+		.name-section {
+			h2 {
+				text-align: center;
+				font-family: var(--font-montserrat);
+				font-size: 1.6em;
+				margin-bottom: 0.5em;
+			}
+			p {
+				text-align: center;
+			}
+			> p {
+				max-width: 60em;
+				margin: 0 auto;
+			}
+		}
+		.board-grid-top,
+		.board-grid,
+		.tutor-grid {
+			display: grid;
+			max-width: 80em;
+			margin: 0 auto;
+			padding-top: 2em;
+			gap: 3em;
+			width: fit-content;
+		}
+		.board-grid-top {
+			grid-template-columns: repeat(2, 1fr);
+		}
+		.board-grid {
+			grid-template-columns: repeat(4, 1fr);
+		}
+		.tutor-grid {
+			grid-template-columns: repeat(4, 1fr);
+		}
+		.grid-item {
+			text-align: center;
+			line-height: 1.1;
+			.portrait-image {
+				aspect-ratio: 16 / 20;
+				background-color: black;
+				border: 2px white solid;
+				border-radius: 0.8em;
+				margin-bottom: 0.5em;
+				img {
+					width: 100%;
+					height: 100%;
+				}
+			}
+			.name {
+				margin: 0;
+				font-size: 1em;
+				font-family: var(--font-montserrat);
+			}
+			.title {
+				margin: 0;
+				font-family: var(--font-glacial);
+			}
+		}
+		.board-top-item {
+			.portrait-image {
+				aspect-ratio: 1 / 1;
+			}
+			width: 13em;
+		}
+		.board-item {
+			width: 10em;
+		}
+		.tutor-item {
+			width: 11em;
+		}
+	</style>
+</Layout>
