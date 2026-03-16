@@ -2,10 +2,9 @@
 import Word from "../components/Word.astro";
 import Layout from "../layouts/Layout.astro";
 import Launch from "../assets/icons/launch.svg";
-import { Image } from "astro:assets";
+import { Image } from 'astro:assets';
 
-const icons = import.meta.glob<{ default: ImageMetadata }>("../assets/icons/resources/*", { eager: true });
-
+const icons = import.meta.glob<ImageMetadata>('../assets/icons/resources/*.svg', { eager: true });
 const imageFor = (name: string) => icons[`../assets/icons/resources/${name}.svg`].default;
 
 const resources = [
@@ -40,6 +39,26 @@ const resources = [
 		image: imageFor("book"),
 	},
 	{
+		url: "https://ggl.link/YLECES5",
+		name: "History HL: Emergence of USSR",
+		image: imageFor("book"),
+	},
+	{
+		url: "https://ggl.link/h631dt7",
+		name: "History HL: Russian Revolution",
+		image: imageFor("book"),
+	},
+	{
+		url: "https://ggl.link/9R6foH9",
+		name: "History HL: Paris Peace Treaties",
+		image: imageFor("book"),
+	},
+	{
+		url: "https://ggl.link/RNFJ0TS",
+		name: "History HL: Stalin",
+		image: imageFor("book"),
+	},
+	{
 		url: "https://ggl.link/eVqWLz6",
 		name: "How to Write an Academic Paper",
 		image: imageFor("paper"),
@@ -48,6 +67,11 @@ const resources = [
 		url: "https://ggl.link/lxfZK77",
 		name: "Economics Guide",
 		image: imageFor("paper"),
+	},
+	{
+		url: "https://ggl.link/jcPiOMi",
+		name: "Geography HL/SL",
+		image: imageFor("map"),
 	},
 	{
 		url: "https://ggl.link/WktI3wt",
@@ -161,6 +185,7 @@ const resources = [
 			font-size: var(--step-1);
 		}
 		.resource-image {
+			color: white;
 			height: var(--space-3xl);
             width: var(--space-3xl);
 		}

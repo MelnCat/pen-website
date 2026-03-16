@@ -4,8 +4,7 @@ import { defineConfig, fontProviders } from "astro/config";
 import mailObfuscation from "astro-mail-obfuscation";
 
 export default defineConfig({
-	experimental: {
-		fonts: [
+	fonts: [
 			{
 				name: "Glacial Indifference",
 				cssVariable: "--font-glacial",
@@ -30,6 +29,8 @@ export default defineConfig({
 				weights: [700],
 			},
 		],
+	experimental: {
+		svgo: true
 	},
 	integrations: [mailObfuscation()],
 });

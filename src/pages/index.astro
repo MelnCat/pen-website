@@ -1,6 +1,10 @@
 ---
 import Word from "../components/Word.astro";
 import Layout from "../layouts/Layout.astro";
+import { Image } from 'astro:assets';
+
+const icons = import.meta.glob<ImageMetadata>('../assets/icons/resources/*.svg', { eager: true });
+const imageFor = (name: string) => icons[`../assets/icons/resources/${name}.svg`].default;
 ---
 
 <Layout title="PEN | Home">
@@ -55,7 +59,7 @@ import Layout from "../layouts/Layout.astro";
 		<p><em>Simple steps to access support from fellow students.</em></p>
 		<div class="steps-cards">
 			<div class="steps-card">
-				<div class="card-image"></div>
+				<Image src={imageFor("math")} alt="" class="card-image" />
 				<div class="card-title">Submit Inquiry</div>
 				<div class="card-desc">Tell us what subjects you need help with and you specific challenges</div>
 			</div>
@@ -220,6 +224,7 @@ import Layout from "../layouts/Layout.astro";
 					height: var(--space-3xl);
 					width: var(--space-3xl);
 					margin-bottom: var(--space-xs);
+					color: #ffffff;
 				}
 				.card-title {
 					font-size: var(--step-1);
