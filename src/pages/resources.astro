@@ -5,79 +5,89 @@ import Launch from "../assets/icons/launch.svg";
 import { Image } from 'astro:assets';
 
 const icons = import.meta.glob<ImageMetadata>('../assets/icons/resources/*.svg', { eager: true });
-const imageFor = (name: string) => icons[`../assets/icons/resources/${name}.svg`].default;
+const imageFor = (name: string) => icons[`../assets/icons/resources/${name}-light.svg`].default;
 
 const resources = [
-	{
-		url: "https://dub.sh/Sc8uNxn",
-		name: "Pre-Calculus 11",
-		image: imageFor("protractor"),
-	},
-	{
-		url: "https://ggl.link/x5gT7uG",
-		name: "Math AA HL",
-		image: imageFor("protractor"),
-	},
-	{
-		url: "https://ggl.link/a9nwDzL",
-		name: "Physics HL",
-		image: imageFor("protractor"),
-	},
-	{
-		url: "https://ggl.link/N1CUTqo",
-		name: "Chemistry SL",
-		image: imageFor("chem"),
-	},
-	{
-		url: "https://ggl.link/4D8sMJo",
-		name: "History HL: Causes of WWI",
-		image: imageFor("book"),
-	},
-	{
-		url: "https://ggl.link/RNFJ0TS",
-		name: "History HL: Battles of WWI",
-		image: imageFor("book"),
-	},
-	{
-		url: "https://ggl.link/YLECES5",
-		name: "History HL: Emergence of USSR",
-		image: imageFor("book"),
-	},
-	{
-		url: "https://ggl.link/h631dt7",
-		name: "History HL: Russian Revolution",
-		image: imageFor("book"),
-	},
-	{
-		url: "https://ggl.link/9R6foH9",
-		name: "History HL: Paris Peace Treaties",
-		image: imageFor("book"),
-	},
-	{
-		url: "https://ggl.link/RNFJ0TS",
-		name: "History HL: Stalin",
-		image: imageFor("book"),
-	},
-	{
-		url: "https://ggl.link/eVqWLz6",
-		name: "How to Write an Academic Paper",
-		image: imageFor("paper"),
-	},
-	{
-		url: "https://ggl.link/lxfZK77",
-		name: "Economics Guide",
-		image: imageFor("paper"),
-	},
-	{
-		url: "https://ggl.link/jcPiOMi",
-		name: "Geography HL/SL",
-		image: imageFor("map"),
-	},
-	{
-		url: "https://ggl.link/WktI3wt",
-		name: "CAS Guide",
-		image: imageFor("paper"),
-	},
+    {
+        url: "https://dub.sh/Sc8uNxn",
+        name: "Pre-Calculus 11",
+        image: imageFor("ruler"),
+    },
+    {
+        url: "https://ggl.link/TAHVqlf",
+        name: "Pre-Calculus 12",
+        image: imageFor("ruler"),
+    },
+    {
+        url: "https://ggl.link/x5gT7uG",
+        name: "Math AA HL",
+        image: imageFor("calculator"),
+    },
+    {
+        url: "https://ggl.link/yKJgBuP",
+        name: "Biology SL/HL",
+        image: imageFor("microscope"),
+    },
+    {
+        url: "https://ggl.link/a9nwDzL",
+        name: "Physics HL",
+        image: imageFor("atom"),
+    },
+    {
+        url: "https://ggl.link/N1CUTqo",
+        name: "Chemistry SL",
+        image: imageFor("flask"),
+    },
+    {
+        url: "https://ggl.link/jcPiOMi",
+        name: "Geography HL/SL",
+        image: imageFor("globe-hemisphere-west"),
+    },
+    {
+        url: "https://ggl.link/4D8sMJo",
+        name: "History HL: Causes of WWI",
+        image: imageFor("hourglass"),
+    },
+    {
+        url: "https://ggl.link/RNFJ0TS",
+        name: "History HL: Battles of WWI",
+        image: imageFor("hourglass"),
+    },
+    {
+        url: "https://ggl.link/YLECES5",
+        name: "History HL: Emergence of USSR",
+        image: imageFor("hourglass"),
+    },
+    {
+        url: "https://ggl.link/h631dt7",
+        name: "History HL: Russian Revolution",
+        image: imageFor("hourglass"),
+    },
+    {
+        url: "https://ggl.link/9R6foH9",
+        name: "History HL: Paris Peace Treaties",
+        image: imageFor("hourglass"),
+    },
+    {
+        url: "https://ggl.link/RNFJ0TS",
+        name: "History HL: Stalin",
+        image: imageFor("hourglass"),
+    },
+    {
+        url: "https://ggl.link/lxfZK77",
+        name: "Economics Guide",
+        image: imageFor("coins"),
+    },
+    {
+        url: "https://ggl.link/eVqWLz6",
+        name: "How to Write an Academic Paper",
+        image: imageFor("pencil-simple"),
+    },
+    {
+        url: "https://ggl.link/WktI3wt",
+        name: "CAS Guide",
+        image: imageFor("shooting-star"),
+    },
 ];
 ---
 
@@ -185,7 +195,7 @@ const resources = [
 			font-size: var(--step-1);
 		}
 		.resource-image {
-			color: white;
+			filter: brightness(0) invert(1);
 			height: var(--space-3xl);
             width: var(--space-3xl);
 		}
