@@ -1,0 +1,25 @@
+---
+const icons = import.meta.glob('../assets/icons/resources/*.svg', { eager: true, query: '?raw', import: 'default' });
+
+interface Props {
+    name: string;
+    class?: string;
+}
+
+const { name, class: className } = Astro.props;
+const svg = icons[`../assets/icons/resources/${name}-light.svg`] as string;
+---
+<span class:list={["icon", className]}>
+    <Fragment set:html={svg} />
+</span>
+<style>
+    .icon {
+        display: inline-flex;
+        width: 1em;
+        height: 1em;
+    }
+    .icon :global(svg) {
+        width: 100%;
+        height: 100%;
+    }
+</style>
