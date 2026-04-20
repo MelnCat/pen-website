@@ -229,40 +229,44 @@ const imageFor = (name: string) => images[`../assets/img/team/${name}`].default;
 				margin: 0 auto;
 			}
 		}
-		.board-grid-top,
-		.board-grid,
-		.tutor-grid {
+		
+		.board-grid-top, .board-grid, .tutor-grid {
 			display: grid;
-			max-width: 80em;
 			margin: 0 auto;
 			padding-top: 2em;
 			gap: 3em;
 			width: fit-content;
-		}
-		.board-grid-top {
-			grid-template-columns: repeat(2, 1fr);
-		}
-		.board-grid {
 			grid-template-columns: repeat(1, 1fr);
 		}
-		.tutor-grid {
-			grid-template-columns: repeat(1, 1fr);
+
+		@media (width < 768px) {
+			.board-grid-top, .board-grid, .tutor-grid {
+				grid-template-columns: repeat(1, 1fr);
+			}
 		}
 
 		@media (768px <= width < 1024px) {
 			.board-grid, .tutor-grid {
 				grid-template-columns: repeat(2, 1fr);
+				max-width: 80em;
 			}
 			.board-grid-top {
 				grid-template-columns: repeat(1, 1fr);
+				max-width: 80em;
 			}
 		}
 
 		@media (1024px <= width) {
 			.board-grid, .tutor-grid {
 				grid-template-columns: repeat(4, 1fr);
+				max-width: 80em;
+			}
+			.board-grid-top {
+				grid-template-columns: repeat(2, 1fr);
+				max-width: 80em;
 			}
 		}
+
 		.grid-item {
 			text-align: center;
 			line-height: 1.1;
