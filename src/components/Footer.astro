@@ -15,12 +15,12 @@ import Icon from "./Icon.astro"
 		</section>
 		<section class="contact">
 			<div>
-				<span data-obfuscation="0">yangyicheng009@gmail.com</span> • Vancouver, BC
+				<span data-obfuscation="0">network.ib45@gmail.com</span> • Vancouver, BC
 			</div>
 			<div class="social-wrapper">
-				<Icon name="tiktok" class="social-icon" href="" />
+				<Icon name="rednote" class="social-icon" href="https://xhslink.com/m/A9ECkX1AAiS" />
 				<Icon name="instagram" class="social-icon" href="https://www.instagram.com/pacific.education_network" />
-				<Icon name="youtube" class="social-icon" />
+				<Icon name="youtube" class="social-icon" href="https://www.youtube.com/channel/UC0TZGQO3O-BkHHsrfI8_abQ" />
 			</div>
 		</section>
 	</article>
@@ -32,17 +32,12 @@ import Icon from "./Icon.astro"
 
 <style>
 	.social-wrapper {
-		width: 6em !important;
-		flex-shrink: 0;
-		margin-left: auto;
+		width: fit-content;
+		margin: 0 auto;
 	}
-	.social-icon {
-		font-size: 20em;
+	.contact {
+		font-size: 1rem;
 	}
-
-    .contact {
-        font-size: var(--step-0);
-    }
     footer {
 		background-color: #000000;
 		border-top: 2px solid #545454;
@@ -107,6 +102,27 @@ import Icon from "./Icon.astro"
 		.social-wrapper {
 			margin-left: 0;
 			margin-right: auto;
+		}
+	}
+
+</style>
+<style is:global>
+	.social-icon {
+		--icon-size: 3em;
+	}
+
+	@media (768px <= width < 1024px) {
+		.social-wrapper {
+
+		}
+		.social-icon {
+			--icon-size = em;
+		}
+	}
+
+	@media (1024px <= width) {
+		.social-icon {
+			--icon-size = 10em;
 		}
 	}
 </style>
