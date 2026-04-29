@@ -3,6 +3,8 @@ import { Font } from "astro:assets";
 import Nav from "../components/Nav.astro";
 import Footer from "../components/Footer.astro";
 
+import Icon from "../assets/icons/favicon.ico";
+
 const { title } = Astro.props;
 
 import SpeedInsights from "@vercel/speed-insights/astro"
@@ -15,6 +17,8 @@ import SpeedInsights from "@vercel/speed-insights/astro"
 		<title>{title}</title>
 		<Font cssVariable="--font-glacial" />
 		<Font cssVariable="--font-montserrat" />
+
+		<link rel="icon" type="image/x-icon" href={Icon}>
 
 		<SpeedInsights />
 	</head>
