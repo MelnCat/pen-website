@@ -1,66 +1,129 @@
+---
+import { Image } from "astro:assets";
+
+import MainIcon from "../assets/icons/icon-placeholder.svg";
+import Icon from "./Icon.astro"
+---
+
 <footer>
 	<article>
 		<section class="pen">
-			<div class="gray"><div class="image"></div> <span>Pacific Education Network</span></div>
-			<div>We help by providing better access to education.</div>
+			<div class="gray"><div >
+				<Image src={MainIcon} alt="" class="image"/>
+			</div> <span>Pacific Education Network</span></div>
+			<div>We help provide better access to education.</div>
 		</section>
 		<section class="contact">
 			<div>
-				Contact: <span data-obfuscation="0">yangyicheng009@gmail.com</span> • Vancouver, BC
+				<span data-obfuscation="0">network.ib45@gmail.com</span> • Vancouver, BC
 			</div>
-			<div>Follow: Instagram • TikTok • YouTube</div>
+			<div class="social-wrapper">
+				<Icon name="rednote" class="social-icon" href="https://xhslink.com/m/A9ECkX1AAiS" />
+				<Icon name="instagram" class="social-icon" href="https://www.instagram.com/pacific.education_network" />
+				<Icon name="youtube" class="social-icon" href="https://www.youtube.com/channel/UC0TZGQO3O-BkHHsrfI8_abQ" />
+			</div>
 		</section>
 	</article>
 	<section class="bottom">
-		<div>© 2025 Pacific Education Network (Society). All rights reserved.</div>
+		<div>©2026 Pacific Education Network. All rights reserved.</div>
 		<div>Privacy Policy</div>
 	</section>
 </footer>
 
 <style>
-    .contact {
-        text-align: right;
-        font-size: 1.2em;
-    }
-	.pen {
-		font-style: italic;
-		display: flex;
-		flex-direction: column;
-		gap: 0.3em;
-        .image {
-			width: 2em;
-			height: 2em;
-			background-color: red;
-			border-radius: 50%;
-		}
-		.gray {
-			color: #969696;
-			display: flex;
-			align-items: center;
-			gap: 0.3em;
-		}
+	.social-wrapper {
+		width: fit-content;
+		margin: 0 auto;
 	}
-	footer {
+	.contact {
+		font-size: 1rem;
+	}
+    footer {
 		background-color: #000000;
 		border-top: 2px solid #545454;
 		display: flex;
 		flex-direction: column;
 		align-items: center;
-		padding: 1em;
+		padding: var(--space-l) var(--space-m);
+	}
+	.pen {
+		font-style: italic;
+		display: flex;
+		flex-direction: column;
+		gap: var(--space-3xs);
+		.image {
+			width: 2em;
+			height: 2em;
+			background-color: red;
+			border-radius: 50%;
+			flex-shrink: 0;
+		}
+		.gray {
+			color: #969696;
+			display: flex;
+			align-items: center;
+			gap: var(--space-3xs);
+			span {
+				white-space: nowrap;
+			}
+		}
 	}
 	article {
 		display: flex;
+		flex-direction: column;
+		gap: var(--space-l);
 		width: 100%;
-		justify-content: space-between;
-		max-width: 60em;
-		padding-bottom: 2em;
+		max-width: 70rem;
+		padding-bottom: var(--space-l);
 	}
 	.bottom {
-		width: 100%;
 		display: flex;
-		justify-content: space-between;
-		max-width: 60em;
+		flex-direction: column;
+		gap: var(--space-3xs);
+		width: 100%;
+		max-width: 70rem;
 		border-top: 2px solid #545454;
-		padding-top: 1em;
+		padding-top: var(--space-s);
+		font-size: var(--step--1);
+	}
+
+	@media (min-width: 640px) {
+		article {
+			flex-direction: row;
+			justify-content: space-between;
+			.contact {
+				text-align: right;
+			}
+		}
+		.bottom {
+			flex-direction: row;
+			justify-content: space-between;
+		}
+		.social-wrapper {
+			margin-left: 0;
+			margin-right: auto;
+		}
+	}
+
+</style>
+<!-- required because of the icon component - shouldn't use much data, but if you have an alternative method do tell please  -->
+<style is:global> 
+	.social-icon {
+		--icon-size: 3em;
+	}
+
+	@media (768px <= width < 1024px) {
+		.social-wrapper {
+			margin-left: auto;
+		}
+		.social-icon {
+			--icon-size = em;
+		}
+	}
+
+	@media (1024px <= width) {
+		.social-icon {
+			--icon-size = 10em;
+		}
 	}
 </style>

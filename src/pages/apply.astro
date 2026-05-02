@@ -1,11 +1,14 @@
 ---
 import Word from "../components/Word.astro";
 import Layout from "../layouts/Layout.astro";
-import Launch from "../assets/icons/launch.svg";
 import LinkButton from "../components/LinkButton.astro";
+import { Image } from "astro:assets";
+
+const icons = import.meta.glob<{default: ImageMetadata}>('../assets/icons/resources/*.svg', { eager: true });
+const imageFor = (name: string) => icons[`../assets/icons/resources/${name}-light.svg`].default;
 ---
 
-<Layout>
+<Layout title = "PEN | Apply">
 	<div class="title">
 		<h1><Word><em>Want to have a part?</em></Word></h1>
 	</div>
@@ -20,27 +23,31 @@ import LinkButton from "../components/LinkButton.astro";
 				You don’t have to learn alone! Connect with caring, qualified, and passionate tutors who are ready to support
 				you at your pace and help you reach your goals.
 			</p>
-			<LinkButton href="/todo">Find a Tutor!</LinkButton>
+			<LinkButton href="https://forms.gle/yePxF1p6JSNqcd8R8">Find a Tutor!</LinkButton>
 		</div>
-		<div class="image"></div>
+		<div>
+			<Image class="image" src={imageFor("student")} alt=""/>
+		</div>
 	</section>
 	<section>
-		<div class="image"></div>
+		<div>
+			<Image class="image" src={imageFor("books")} alt=""/>
+		</div>
 		<div class="text-content">
 			<h2>Ready to demonstrate your abilities?</h2>
 			<p>
 				Share your knowledge. Shape a future. Make a difference. Join the Pacific Network Education as a tutor and help
 				students learn, grow, and succeed, one session at a time. Flexible times and low workload!
 			</p>
-			<LinkButton href="/todo"> Sign Up to Teach</LinkButton>
+			<LinkButton href="https://forms.gle/mitpnMZ8ZhozAMVT6"> Sign Up to Teach</LinkButton>
 		</div>
 	</section>
 </Layout>
 
 <style>
 	.title {
-		font-size: 2rem;
-		margin-top: 0.5em;
+		font-size: var(--step-3);
+		margin-top: var(--space-s);
 		font-family: var(--font-montserrat);
 		text-align: center;
 		h1 {
@@ -49,24 +56,45 @@ import LinkButton from "../components/LinkButton.astro";
 	}
 	h2 {
 		font-family: var(--font-montserrat);
-		margin: 0;
-		margin-bottom: 0.25em;
+		margin: 0 0 0.25em;
 	}
 	.subtitle {
-		text-align: center;
-		max-width: 50em;
+		text-align: left;
+		max-width: 40em;
 		margin: 0 auto;
+		font-size: var(--step-0);
 	}
 	section {
 		display: flex;
+		align-items: center;
 		justify-content: space-between;
-		gap: 3em;
-		margin: 4em 0;
+		gap: var(--space-xl);
+		margin: var(--space-2xl) auto;
+		max-width: 70rem;
+		padding: 0 var(--space-m);
+	}
+	.text-content {
+		flex: 1;
 	}
 	.image {
-		width: 16em;
-		height: 16em;
+		width: 18em;
+		height: 18em;
 		background: white;
 		flex-shrink: 0;
+		border-radius: var(--space-2xs);
+	}
+
+	@media (max-width: 768px) {
+		section {
+			flex-direction: column;
+			margin: var(--space-xl) auto;
+		}
+		section:nth-child(even) {
+			flex-direction: column;
+		}
+		.image {
+			width: 100%;
+			height: 12em;
+		}
 	}
 </style>
