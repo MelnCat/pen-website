@@ -18,22 +18,22 @@ const boardTop = [
 const board = [
 	{
 		name: "Ayden Leung",
-		title: "Design Manager",
+		title: "Director of Quality Assurance ",
 		image: "Ayden Leung Exec.png",
 	},
 	{
 		name: "Alisa Du",
-		title: "Social Media Manager",
+		title: "Director of Communications and Outreach ",
 		image: "Alisa Du Exec.jpeg",
 	},
 	{
 		name: "Ben Fung",
-		title: "Head Tutor",
+		title: "Director of Academics and Tutor Relations",
 		image: "Ben Fung Exec.jpg",
 	},
 	{
 		name: "Lucas Moss",
-		title: "Web Developer",
+		title: "Director of Technology",
 		image: "Lucas.jpg",
 	},
 ];
@@ -171,7 +171,7 @@ const imageFor = (name: string) => images[`../assets/img/team/${name}`].default;
 			margin-top: 0.5em;
 			font-family: var(--font-montserrat);
 			align-items: center;
-			text-align: left;
+			text-align: center;
 			display: flex;
 			flex-direction: column;
 			h1 {
@@ -264,6 +264,7 @@ const imageFor = (name: string) => images[`../assets/img/team/${name}`].default;
 			.title {
 				margin: 0;
 				font-family: var(--font-glacial);
+				text-align: center;
 			}
 		}
 		.board-top-item {
